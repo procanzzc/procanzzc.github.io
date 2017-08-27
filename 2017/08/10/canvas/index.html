@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="canvas," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="canvas初步了解api">
+<meta name="keywords" content="canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn canvas">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/canvas/index.html">
+<meta property="og:site_name" content="Procan&#39;s Blog">
+<meta property="og:description" content="canvas初步了解api">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-12T00:33:46.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learn canvas">
+<meta name="twitter:description" content="canvas初步了解api">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/10/canvas/"/>
+
+
+
+
+
+  <title>Learn canvas | Procan's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Procan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Procan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Procan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learn canvas</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T00:00:00+08:00">
+                2017-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  canvas初步了解api
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="绘制彩虹"><a href="#绘制彩虹" class="headerlink" title="绘制彩虹"></a>绘制彩虹</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//x绘制从0到800,y绘制从0到30</span></div><div class="line"></div><div class="line"><span class="comment">/*红 --- 黄</span></div><div class="line"><span class="comment">    * rgb(255,0,0)</span></div><div class="line"><span class="comment">    * rgb(255,255,0)*/</span></div><div class="line"><span class="comment">/*黄 ---- 绿</span></div><div class="line"><span class="comment">    * rgb(255,255,0)</span></div><div class="line"><span class="comment">    * rgb(0,255,0)*/</span></div><div class="line"><span class="comment">/*绿 ---- 青  靛</span></div><div class="line"><span class="comment">     * rgb(0,255,0)</span></div><div class="line"><span class="comment">     * rgb(0,255,255)*/</span></div><div class="line"><span class="comment">/*青 ---- 蓝</span></div><div class="line"><span class="comment">     * rgb(0,255,255)</span></div><div class="line"><span class="comment">     * rgb(0,0,255)*/</span></div><div class="line"><span class="comment">/*蓝 ----紫</span></div><div class="line"><span class="comment">     * rgb(0,0,255)</span></div><div class="line"><span class="comment">     * rgb(255,0,255)*/</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt; <span class="number">30</span> ; i++)&#123;</div><div class="line">    ctx.beginPath();</div><div class="line">    <span class="keyword">var</span> color = <span class="built_in">Math</span>.floor( i / <span class="number">30</span> * <span class="number">255</span>) ;</div><div class="line">    ctx.moveTo(<span class="number">0</span>,<span class="number">100</span>　+ i );</div><div class="line">    ctx.lineTo(<span class="number">800</span>,<span class="number">100</span> + i +<span class="number">1</span>);</div><div class="line">    ctx.strokeStyle = <span class="string">"rgb(255,"</span>+color+<span class="string">",0)"</span>;</div><div class="line">    ctx.stroke();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="正常坐标轴的绘制"><a href="#正常坐标轴的绘制" class="headerlink" title="正常坐标轴的绘制"></a>正常坐标轴的绘制</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置距离外层canvas边框的距离</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> pad = <span class="number">20</span>;</div><div class="line">ctx.moveTo(pad,pad);</div><div class="line"><span class="comment">//绘制第一条线段</span></div><div class="line">ctx.lineTo(pad,canvas.height-pad);</div><div class="line">ctx.lineTo(canvas.width-pad,canvas.height-pad);</div><div class="line">ctx.stroke();</div><div class="line"><span class="comment">//绘制第二条线段</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(pad,pad);</div><div class="line">ctx.lineTo(pad<span class="number">-10</span>,pad+<span class="number">10</span>);</div><div class="line">ctx.lineTo(pad+<span class="number">10</span>,pad+<span class="number">10</span>);</div><div class="line"><span class="comment">//绘制三角形</span></div><div class="line">ctx.moveTo(canvas.width-pad,canvas.height-pad);</div><div class="line">ctx.lineTo(canvas.width-pad<span class="number">-10</span>,canvas.height-pad+<span class="number">10</span>);</div><div class="line">ctx.lineTo(canvas.width-pad<span class="number">-10</span>,canvas.height-pad<span class="number">-10</span>);</div><div class="line">ctx.fill();</div><div class="line"></div><div class="line"><span class="comment">//绘制其中一个坐标点</span></div><div class="line"><span class="keyword">var</span> point = &#123;</div><div class="line">    x:<span class="number">300</span>,</div><div class="line">    y:<span class="number">230</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> newx = point.x + pad;</div><div class="line"><span class="keyword">var</span> pointwidth = <span class="number">4</span>;</div><div class="line"><span class="keyword">var</span> newy = canvas.height - pad - point.y;</div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(newx-pointwidth/<span class="number">2</span>,newy-pointwidth/<span class="number">2</span>);</div><div class="line">ctx.lineTo(newx+pointwidth/<span class="number">2</span>,newy-pointwidth/<span class="number">2</span>);</div><div class="line">ctx.lineTo(newx+pointwidth/<span class="number">2</span>,newy+pointwidth/<span class="number">2</span>);</div><div class="line">ctx.lineTo(newx-pointwidth/<span class="number">2</span>,newy+pointwidth/<span class="number">2</span>);</div><div class="line">ctx.closePath();</div><div class="line">ctx.fill();</div></pre></td></tr></table></figure>
+<ul>
+<li><p>将绘制点的过程封装为函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPoint</span>(<span class="params">point</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> newx = point.x + pad;</div><div class="line">  <span class="keyword">var</span> newy = canvas.height - pad - point.y;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    newx:newx,</div><div class="line">    newy:newy</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// var pointwidth = 4;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPointwidth</span>(<span class="params">point,pointwidth</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> newx = point.newx;</div><div class="line">  <span class="keyword">var</span> newy = point.newy;</div><div class="line">  ctx.beginPath();</div><div class="line">  ctx.moveTo(newx-pointwidth/<span class="number">2</span>,newy-pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.lineTo(newx+pointwidth/<span class="number">2</span>,newy-pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.lineTo(newx+pointwidth/<span class="number">2</span>,newy+pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.lineTo(newx-pointwidth/<span class="number">2</span>,newy+pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.closePath();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>绘制多个点</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> point = [</div><div class="line">    &#123;</div><div class="line">        x:<span class="number">100</span>,</div><div class="line">        y:<span class="number">230</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        x:<span class="number">211</span>,</div><div class="line">        y:<span class="number">211</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        x:<span class="number">331</span>,</div><div class="line">        y:<span class="number">281</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        x:<span class="number">531</span>,</div><div class="line">        y:<span class="number">334</span></div><div class="line">    &#125;</div><div class="line">]</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPoint</span>(<span class="params">point</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> newx = point.x + pad;</div><div class="line">  <span class="keyword">var</span> newy = canvas.height - pad - point.y;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    newx:newx,</div><div class="line">    newy:newy</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// var pointwidth = 4;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPointwidth</span>(<span class="params">point,pointwidth</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> newx = point.newx;</div><div class="line">  <span class="keyword">var</span> newy = point.newy;</div><div class="line">  ctx.beginPath();</div><div class="line">  ctx.moveTo(newx-pointwidth/<span class="number">2</span>,newy-pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.lineTo(newx+pointwidth/<span class="number">2</span>,newy-pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.lineTo(newx+pointwidth/<span class="number">2</span>,newy+pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.lineTo(newx-pointwidth/<span class="number">2</span>,newy+pointwidth/<span class="number">2</span>);</div><div class="line">  ctx.closePath();</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> newarr = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;point.length;i++)&#123;</div><div class="line">    newarr.push(getPoint(point[i]));</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;newarr.length;i++)&#123;</div><div class="line">    getPointwidth(newarr[i],<span class="number">4</span>);</div><div class="line">    ctx.fill();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>对多个点进行连线</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//关键在于要将多个点的坐标进行存储</span></div><div class="line"></div><div class="line">    ctx.beginPath();    </div><div class="line">    ctx.moveTo(newarr[<span class="number">0</span>].newx,newarr[<span class="number">0</span>].newy);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;newarr.length;i++)&#123;</div><div class="line">        ctx.lineTo(newarr[i].newx,newarr[i].newy);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ctx.stroke();</div></pre></td></tr></table></figure>
+<h2 id="动画绘制饼图"><a href="#动画绘制饼图" class="headerlink" title="动画绘制饼图"></a>动画绘制饼图</h2><ul>
+<li>关键点在于判断在加载到某个进度切换颜色加载下一个数据</li>
+<li>arc绘制圆弧如果没有使用beginPath()开启新的路径,那么上一个结束的节点就会是下一个开始的节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAngle</span>(<span class="params">angle</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.PI / <span class="number">180</span> * angle;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"rgb("</span>+<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">256</span>)+<span class="string">","</span>+<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">256</span>)+<span class="string">","</span>+<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">256</span>)+<span class="string">")"</span>;</div><div class="line">&#125;    </div><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [<span class="number">123</span>,<span class="number">377</span>,<span class="number">342</span>,<span class="number">231</span>,<span class="number">256</span>,<span class="number">111</span>];</div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line"><span class="comment">//求出每个数据占总数据的比例</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">    sum += arr[i];</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> anglearr = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> value/sum;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">var</span> index = <span class="number">0</span>; <span class="comment">//定义索引</span></div><div class="line"><span class="keyword">var</span> rela = <span class="number">-90</span>;<span class="comment">//定义初始化的角度</span></div><div class="line"><span class="keyword">var</span> start = <span class="number">-90</span>;<span class="comment">//定义初始化的角度</span></div><div class="line"><span class="keyword">var</span> step = <span class="number">1</span>;</div><div class="line"><span class="comment">// start += step</span></div><div class="line"><span class="comment">//当rela + 数据的角度angle &lt; start 的时候进行切换</span></div><div class="line"><span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//进行切换操作</span></div><div class="line">    <span class="keyword">if</span>(rela + anglearr[index]*<span class="number">360</span> &lt; start)&#123;</div><div class="line">        ctx.beginPath();</div><div class="line">        <span class="keyword">var</span> angle = anglearr[index] *<span class="number">360</span>;</div><div class="line">        rela += angle;</div><div class="line">        index++;</div><div class="line">    &#125;</div><div class="line">    ctx.moveTo(<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">    ctx.arc(<span class="number">200</span>,<span class="number">200</span>,<span class="number">100</span>,getAngle(start),getAngle(start+anglearr[index]),<span class="literal">false</span>);</div><div class="line">    start+=step;</div><div class="line">    ctx.fillStyle = getColor();</div><div class="line">    ctx.fill();</div><div class="line">    <span class="comment">//因为是从-90开始的,所以运动到270的时候结束</span></div><div class="line">    <span class="keyword">if</span>(start == <span class="number">270</span>)&#123;</div><div class="line">        clearInterval(timer);</div><div class="line">    &#125;</div><div class="line">&#125;,<span class="number">17</span>);</div></pre></td></tr></table></figure>
+<h2 id="绘制会动的正方形"><a href="#绘制会动的正方形" class="headerlink" title="绘制会动的正方形"></a>绘制会动的正方形</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> y = (c.height-height)/<span class="number">2</span>;<span class="comment">//垂直居中绘制一个正方形</span></div><div class="line"><span class="keyword">var</span> xspeed = <span class="number">3</span>;</div><div class="line"><span class="keyword">var</span> yspeed = <span class="number">5</span>;</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//需要清除画布避免重复绘制</span></div><div class="line">    ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,c.width,c.height);</div><div class="line">    x+=xspeed;</div><div class="line">    y+=yspeed;</div><div class="line">    <span class="comment">//设置临界值</span></div><div class="line">    <span class="keyword">if</span>(x&gt;c.width-width||x&lt;=<span class="number">0</span>)&#123;</div><div class="line">        xspeed = -xspeed;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(y&gt;c.height-height || y&lt;=<span class="number">0</span>)&#123;</div><div class="line">        yspeed = -yspeed;</div><div class="line">    &#125;</div><div class="line">    ctx.fillRect(x,y,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">&#125;,<span class="number">17</span>);</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/canvas/" rel="tag"># canvas</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/10/canvas1/" rel="next" title="Learn canvas">
+                <i class="fa fa-chevron-left"></i> Learn canvas
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg"
+               alt="Procan" />
+          <p class="site-author-name" itemprop="name">Procan</p>
+           
+              <p class="site-description motion-element" itemprop="description">a blog for procan</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/procanzzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制彩虹"><span class="nav-number">1.</span> <span class="nav-text">绘制彩虹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正常坐标轴的绘制"><span class="nav-number">2.</span> <span class="nav-text">正常坐标轴的绘制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画绘制饼图"><span class="nav-number">3.</span> <span class="nav-text">动画绘制饼图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制会动的正方形"><span class="nav-number">4.</span> <span class="nav-text">绘制会动的正方形</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Procan</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

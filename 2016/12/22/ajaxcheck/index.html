@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ajax," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="ajax复习/php复习">
+<meta name="keywords" content="ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn AJAX">
+<meta property="og:url" content="http://yoursite.com/2016/12/22/ajaxcheck/index.html">
+<meta property="og:site_name" content="Procan&#39;s Blog">
+<meta property="og:description" content="ajax复习/php复习">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-12T00:35:20.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learn AJAX">
+<meta name="twitter:description" content="ajax复习/php复习">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/22/ajaxcheck/"/>
+
+
+
+
+
+  <title>Learn AJAX | Procan's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Procan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/ajaxcheck/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Procan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Procan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learn AJAX</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-22T00:00:00+08:00">
+                2016-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  ajax复习/php复习
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="AJAX-check"><a href="#AJAX-check" class="headerlink" title="AJAX check"></a>AJAX check</h2><h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><ul>
+<li>in_array适用于索引数组.</li>
+<li>in_array(‘参数’,’数组’);</li>
+<li>in_array($userName,$arr);</li>
+</ul>
+<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><ul>
+<li>http协议是由客户机到服务器的请求和从服务器到客户机的响应进行了约束和规范</li>
+<li>请求由客户端发起,其规范格式为:请求行.请求头.请求主体.</li>
+<li>响应由服务器发出,其规范格式为:状态行.响应头.响应主体.</li>
+<li>200表示响应成功,304文档没有修改(缓存),403没有权限,404没有找到资源.</li>
+<li>XMLHttpRequest 浏览器内置对象,用于后台与服务器交换数据.</li>
+</ul>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//新建xhr对象</span></div><div class="line"> <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"> <span class="comment">//请求行</span></div><div class="line"> xhr.open(<span class="string">'post'</span>,<span class="string">'demo.php'</span>);</div><div class="line"> <span class="comment">//请求头</span></div><div class="line"> xhr.setRequestHeader(<span class="string">'Content-Type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</div><div class="line"> <span class="comment">//请求体</span></div><div class="line"> xhr.send(<span class="string">'username='</span> + name);</div></pre></td></tr></table></figure>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//新建xhr对象</span></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">//请求行</span></div><div class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'demo.php?='</span>+name);</div><div class="line"><span class="comment">//get对象不需要设置请求头</span></div><div class="line"><span class="comment">//请求体</span></div><div class="line"><span class="comment">//get的请求体不需要设置参数</span></div><div class="line">xhr.send();</div></pre></td></tr></table></figure>
+<h3 id="GET与POST"><a href="#GET与POST" class="headerlink" title="GET与POST"></a>GET与POST</h3><ul>
+<li>GET不需要设置请求头,请求体send不需要设置参数</li>
+<li>GET的数据传递通过url进行传递,而POST在send方法中传递</li>
+<li>GET大小限制为4k.POST对大小没有限制</li>
+</ul>
+<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><ul>
+<li>1.是一种标记语言,用来传输数据.</li>
+<li>2.语法必须要有一个根元素.标签可以有字母下划线数字组成,但是不能有空格.否则会传输为空.</li>
+<li>3.解析过于庞大而且冗余.</li>
+<li>4.读取xml文件,php&gt;$xml = file_get_contents(‘demo.xml’);</li>
+<li>5.前台接收xml数据,var result = xhr.responseXML;</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对于xml文件,需要设置Content-Type格式</span></div><div class="line"><span class="comment">//对于html文件,如果没有设置对应的Content-Type,中文识别会变成乱码</span></div><div class="line">header(<span class="string">'Content-Type:application/xml;charset=utf-8'</span>);</div><div class="line"><span class="comment">//读取xml文件</span></div><div class="line">$xml = file_get_contents(<span class="string">'demo.xml'</span>);</div><div class="line"><span class="comment">//输出</span></div><div class="line"><span class="keyword">echo</span> $xml;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">xhr.open(<span class="string">'post'</span>,<span class="string">'demo.php'</span>);</div><div class="line">xhr.setRequestHeader(<span class="string">'Content-Type'</span>,<span class="string">'x-www-form-urlencoded'</span>);</div><div class="line">xhr.send(<span class="literal">null</span>);</div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(xhr.status ==<span class="number">200</span>&amp;&amp;xhr.readyState ==<span class="number">4</span>)&#123;</div><div class="line">        <span class="keyword">var</span> result = xhr.responseXML;</div><div class="line">        <span class="comment">//得到的是xml的dom对象</span></div><div class="line">        <span class="comment">//操作dom对象获取到对应的数据</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><ul>
+<li>1.javascript object notation 轻量级文本数据交换格式</li>
+<li>2.以键值对的形式存在,最后一个键值对不需要带逗号,不能在json文件中添加注释,否则解析错误.</li>
+<li>3.{}保存对象.[]保存数组.</li>
+<li>4.javascript解析方法: JSON.parse()从字符串解析出json对象</li>
+<li>5.javascript解析方法: JSON.stringify() 从json对象中解析出字符串</li>
+<li>6.读取数据格式文件 file_get_contents() 返回字符串,所以需要将返回的字符串转换为对象;</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Content-Type:application/json;charset=utf-8'</span>);</div><div class="line"><span class="comment">//读取json数据</span></div><div class="line">$json = file_get_contents(<span class="string">'demo.json'</span>);</div><div class="line"><span class="comment">//输出</span></div><div class="line"><span class="keyword">echo</span> $json;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'demo.php?userName='</span>+name);</div><div class="line">xhr.send();</div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(xhr.status ==<span class="number">200</span>&amp;&amp;xhr.readyState ==<span class="number">4</span>)&#123;</div><div class="line">        <span class="comment">//获取解析到的json对象</span></div><div class="line">        <span class="keyword">var</span> jsonobj = <span class="built_in">JSON</span>.parse(xhr.responseText);</div><div class="line">        <span class="comment">//当前获取到的json对象是一个数组,所以需要使用遍历操作出书数组    </span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h3><ul>
+<li>stringify 的参数 第一个参数为转换的数据,第二个参数为转换的数据包含的内容,可以传入需要的keys数组,也可以传入回调函数来处理传输的数据.第三个参数为格式化字符串数据用的.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = [</div><div class="line">    &#123;<span class="string">'name'</span>:<span class="string">'jack'</span>,<span class="string">'age'</span>:<span class="number">18</span>,<span class="string">'sex'</span>:<span class="number">0</span>&#125;,</div><div class="line">    &#123;<span class="string">'name'</span>:<span class="string">'lili'</span>,<span class="string">'age'</span>:<span class="number">23</span>,<span class="string">'sex'</span>:<span class="number">1</span>&#125;,</div><div class="line">    &#123;<span class="string">'name'</span>:<span class="string">'brack'</span>,<span class="string">'age'</span>:<span class="number">28</span>,<span class="string">'sex'</span>:<span class="number">0</span>&#125;,</div><div class="line">    &#123;<span class="string">'name'</span>:<span class="string">'dane'</span>,<span class="string">'age'</span>:<span class="number">9</span>,<span class="string">'sex'</span>:<span class="number">1</span>&#125;</div><div class="line">]</div><div class="line"><span class="comment">//var datastring = JSON.stringify(data,null,4);</span></div><div class="line"><span class="comment">//输出缩进为4格的字符串</span></div><div class="line"><span class="comment">//var datastring = JSON.stringify(data,['name','sex'],4);</span></div><div class="line"><span class="comment">//输出只有name,sex属性的字符串</span></div><div class="line"><span class="keyword">var</span> datastring = <span class="built_in">JSON</span>.stringify(data,<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(key == <span class="string">'sex'</span>)&#123;</div><div class="line">        <span class="keyword">return</span> [<span class="string">'女'</span>,<span class="string">'男'</span>][value];</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(key == <span class="string">'age'</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">undefined</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">&#125;,<span class="number">4</span>);</div><div class="line"><span class="built_in">console</span>.log(datastring);</div><div class="line"><span class="comment">//输出将性别转换为对应中文的字符串</span></div></pre></td></tr></table></figure>
+<h3 id="AJAX的封装"><a href="#AJAX的封装" class="headerlink" title="AJAX的封装"></a>AJAX的封装</h3><ul>
+<li>1.获取请求头的content-type类型判断数据类型getRequestheader,如果是xml类型则使用responseXML的方式解析,如果是json类型则使用JSON.parse()方式进行解析,将字符串转换为json对象.</li>
+<li>2.获取get方法中url?后面拼接的字符串.</li>
+<li>3.get方法不需要设置请求头,请求行不需要设置参数,post方法需要.</li>
+<li>4.需要判断服务器返回的数据类型分别解析.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//采用对象的 封装方式可以防止全局变量的污染,如果采用函数的封装方式相当于每个函数都是定义一个全局的变量</span></div><div class="line"> <span class="keyword">var</span> $ = &#123;</div><div class="line">     <span class="comment">//&#123;'name':'jack','age':18&#125;</span></div><div class="line">     <span class="comment">//?name=jack&amp;age=18</span></div><div class="line">    getstr:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> str = <span class="string">''</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;</div><div class="line">            str = str + key + <span class="string">'='</span> + data[key] + <span class="string">'&amp;'</span>;</div><div class="line">        &#125;</div><div class="line">        str = str.slice(<span class="number">0</span>,<span class="number">-1</span>);</div><div class="line">    &#125;,</div><div class="line">    ajax:<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">        <span class="comment">//获取对象中的参数</span></div><div class="line">        <span class="keyword">var</span> type = obj.type || <span class="string">'get'</span>;</div><div class="line">        <span class="keyword">var</span> url = obj.url || location.pathname;</div><div class="line">        <span class="keyword">var</span> success = obj.success || <span class="literal">null</span>;</div><div class="line">        <span class="keyword">var</span> data = obj.data || <span class="literal">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> xhr =  <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        <span class="comment">//判断参数中的type类型</span></div><div class="line">        data = <span class="keyword">this</span>.getstr(data);</div><div class="line">        <span class="keyword">if</span>(type == <span class="string">'get'</span>)&#123;</div><div class="line">            url = url + <span class="string">'?'</span> + data;</div><div class="line">            data = <span class="literal">null</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//如果是get则url需要拼接参数,如果是post则不需要拼接url参数</span></div><div class="line">        xhr.open(type,url);</div><div class="line">        <span class="keyword">if</span>(type == <span class="string">'post'</span>)&#123;</div><div class="line">          xhr.setRequestHeader(<span class="string">'Content-Type'</span>,<span class="string">' application/x-www-form-urlencoded'</span>);</div><div class="line">        &#125;</div><div class="line">        xhr.send(data);</div><div class="line"></div><div class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(xhr.status ==<span class="number">200</span> &amp;&amp; xhr.readystate == <span class="number">4</span>)&#123;</div><div class="line">                <span class="keyword">var</span> rt = xhr.getRequestHeader();</div><div class="line">                <span class="keyword">var</span> result = <span class="literal">null</span>;</div><div class="line">                <span class="keyword">if</span>(rt.indexof(<span class="string">'xml'</span>)!=<span class="number">-1</span>)&#123;</div><div class="line">                    result = xhr.responseXML;</div><div class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(rt.indexof(<span class="string">'json'</span>)!=<span class="number">-1</span>)&#123;</div><div class="line">                    result = <span class="built_in">JSON</span>.parse(xhr.responseText);</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    result = xhr.responseText;</div><div class="line">                &#125;</div><div class="line">                success &amp;&amp; success(result);</div><div class="line">                <span class="comment">//success:function(result)&#123;</span></div><div class="line">                    <span class="comment">//对成功获取到的数据进行操作</span></div><div class="line">                <span class="comment">//&#125;,</span></div><div class="line">                <span class="comment">//error:function(result)&#123;</span></div><div class="line">                    <span class="comment">//获取错误进行的操作</span></div><div class="line">               <span class="comment">// &#125;</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ajax/" rel="tag"># ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/12/mockjs/" rel="next" title="Learn mockjs">
+                <i class="fa fa-chevron-left"></i> Learn mockjs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/02/web/" rel="prev" title="Learn mobile web">
+                Learn mobile web <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg"
+               alt="Procan" />
+          <p class="site-author-name" itemprop="name">Procan</p>
+           
+              <p class="site-description motion-element" itemprop="description">a blog for procan</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/procanzzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-check"><span class="nav-number">1.</span> <span class="nav-text">AJAX check</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">1.1.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST"><span class="nav-number">1.3.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET"><span class="nav-number">1.4.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET与POST"><span class="nav-number">1.5.</span> <span class="nav-text">GET与POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">1.6.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">1.7.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-stringify"><span class="nav-number">1.8.</span> <span class="nav-text">JSON.stringify()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX的封装"><span class="nav-number">1.9.</span> <span class="nav-text">AJAX的封装</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Procan</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

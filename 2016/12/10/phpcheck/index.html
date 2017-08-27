@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="php基础与前台交互">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn php for database">
+<meta property="og:url" content="http://yoursite.com/2016/12/10/phpcheck/index.html">
+<meta property="og:site_name" content="Procan&#39;s Blog">
+<meta property="og:description" content="php基础与前台交互">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-12T00:35:12.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learn php for database">
+<meta name="twitter:description" content="php基础与前台交互">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/10/phpcheck/"/>
+
+
+
+
+
+  <title>Learn php for database | Procan's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Procan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/10/phpcheck/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Procan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Procan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learn php for database</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-10T00:00:00+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  php基础与前台交互
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="PHP-check"><a href="#PHP-check" class="headerlink" title="PHP check"></a>PHP check</h2><h3 id="服务器与客户端"><a href="#服务器与客户端" class="headerlink" title="服务器与客户端"></a>服务器与客户端</h3><ul>
+<li>1.服务器：提供服务的计算机。按服务类型分：文件服务器ftp,数据库服务器,邮件服务器,web服务器.</li>
+<li>2.客户端: 用户端.</li>
+</ul>
+<h3 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h3><ul>
+<li>1.查看本机IP地址 ipconfig/ping</li>
+<li>2.查看域名对应的IP地址 ping</li>
+</ul>
+<h3 id="C-S-B-S"><a href="#C-S-B-S" class="headerlink" title="C/S B/S"></a>C/S B/S</h3><ul>
+<li>1.C/S client/server 不同的服务需要安装不同的客户端软件.</li>
+<li>2.B/S brower/server 所有的服务都可以用浏览器来解决.</li>
+</ul>
+<h3 id="PHP基础"><a href="#PHP基础" class="headerlink" title="PHP基础"></a>PHP基础</h3><ul>
+<li>1.文件名不能使用中文.否则会出现编译错误.</li>
+<li>2.单引号和双引号都可以描述字符串,但是双引号中,变量依旧可以被php解析.</li>
+<li>3.语句之后必须添加分号.</li>
+<li>4.变量以$开头,区分大小写.(变量类型为:字符型,null,布尔类型,number,数组,对象)</li>
+<li>5.echo只能输出字符串,输出对象中某个属性的值,不可以输出整个数组或者整个对象.</li>
+<li>6.输出对象或者数组需要使用 var_dump().</li>
+<li>7.PHP的连接符为”.”;</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义对象</span></div><div class="line"><span class="comment">//注意:定义对象的属性的时候需要添加$, 去除对象中的属性的时候不需要添加$符.</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">    <span class="keyword">public</span> $name = <span class="string">'procan'</span>;</div><div class="line">    <span class="keyword">public</span> $age = <span class="number">18</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出对象中的属性 需要以-&gt;的形式输出</span></div><div class="line">$me = <span class="keyword">new</span> Person;</div><div class="line"><span class="keyword">echo</span> $me -&gt; name;</div></pre></td></tr></table></figure>
+<h3 id="PHP数组"><a href="#PHP数组" class="headerlink" title="PHP数组"></a>PHP数组</h3><h4 id="索引数组与关联数组"><a href="#索引数组与关联数组" class="headerlink" title="索引数组与关联数组"></a>索引数组与关联数组</h4><ul>
+<li>1.使用count方法计算数组的长度</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//索引数组</span></div><div class="line"> $arr1 = <span class="keyword">array</span>(<span class="string">"李白"</span>,<span class="string">"杜甫"</span>,<span class="string">"王羲之"</span>);</div><div class="line"> <span class="keyword">echo</span> $arr1[<span class="number">1</span>];</div><div class="line"> <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($arr1);$i++)&#123;</div><div class="line">    <span class="keyword">echo</span> $arr1[$i];</div><div class="line">    <span class="keyword">echo</span> <span class="string">'&lt;br&gt;'</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"> <span class="comment">//关联数组</span></div><div class="line"> $arr2 = <span class="keyword">array</span>(</div><div class="line">    <span class="string">'name'</span> =&gt; <span class="string">'procan'</span>,</div><div class="line">    <span class="string">'age'</span> =&gt; <span class="number">18</span> </div><div class="line"> );</div><div class="line"> <span class="keyword">echo</span> $arr2[<span class="string">'name'</span>];</div><div class="line"> <span class="keyword">foreach</span>($arr2 <span class="keyword">as</span> $key =&gt; $value)&#123;</div><div class="line">    <span class="keyword">echo</span> $key . <span class="string">':'</span> .$value;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'&lt;br&gt;'</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//混合数组</span></div><div class="line"> $arr3 = <span class="keyword">array</span>(</div><div class="line">     <span class="keyword">array</span>(</div><div class="line">        <span class="string">'name'</span> =&gt; <span class="string">'procan'</span>,</div><div class="line">        <span class="string">'age'</span> =&gt; <span class="number">18</span> </div><div class="line">     ),</div><div class="line">     <span class="keyword">array</span>(</div><div class="line">         <span class="string">'name'</span> =&gt; <span class="string">'xianyu'</span>,</div><div class="line">         <span class="string">'age'</span> =&gt; <span class="number">19</span></div><div class="line">     )</div><div class="line"> );</div><div class="line"> <span class="keyword">echo</span> $arr3[<span class="number">1</span>][<span class="string">'name'</span>];</div><div class="line"> <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($arr3);$i++)&#123;</div><div class="line">    $temp = $arr3[$i];</div><div class="line">    <span class="keyword">foreach</span>($temp <span class="keyword">as</span> $key =&gt; $value)&#123;</div><div class="line">      <span class="keyword">echo</span> $key . <span class="string">':'</span> . $value;</div><div class="line">      <span class="keyword">echo</span> <span class="string">'&lt;br&gt;'</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h4 id="PHP中的几种输出方式"><a href="#PHP中的几种输出方式" class="headerlink" title="PHP中的几种输出方式"></a>PHP中的几种输出方式</h4><ul>
+<li>1.echo</li>
+<li>2.var_dump();</li>
+<li>3.print_r();</li>
+</ul>
+<h4 id="PHP的函数"><a href="#PHP的函数" class="headerlink" title="PHP的函数"></a>PHP的函数</h4><ul>
+<li>1.如果有定义的参数,使用的时候必须传入参数(除非有定义默认值),否则报错,使用函数时也不能传入多余的参数.</li>
+<li>2.定义的参数可以有默认值,如果不传入参数,则使用默认值.<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span><span class="params">($name)</span></span>&#123;</div><div class="line">   <span class="keyword">echo</span> $name . <span class="string">'你好'</span>;</div><div class="line">&#125;</div><div class="line">sayHi(<span class="string">'jack'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h3><ul>
+<li>1.如果使用默认的sumbit提交表单.则需要在各个input控件加上name,如果是自写的提交方式则不需要.</li>
+<li>2.表单action属性设置接收数据的处理程序.</li>
+<li>3.表单method属性设置接收数据的方式.</li>
+<li>4.$_GET 接收get值的传递,$_POST 接收post值的传递,$_FILES 接收文件上传.</li>
+</ul>
+<h3 id="文件导入"><a href="#文件导入" class="headerlink" title="文件导入"></a>文件导入</h3><ul>
+<li>1.include 一般导入静态html文件</li>
+<li>2.require 一般导入php文件</li>
+</ul>
+<h3 id="PHP页面的动态渲染"><a href="#PHP页面的动态渲染" class="headerlink" title="PHP页面的动态渲染"></a>PHP页面的动态渲染</h3><ul>
+<li>1.可以在php文件中直接输出html结构代码</li>
+<li>2.可以在php文件中输出变量.</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/01/h5c3check/" rel="next" title="Learn html5">
+                <i class="fa fa-chevron-left"></i> Learn html5
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/12/mockjs/" rel="prev" title="Learn mockjs">
+                Learn mockjs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg"
+               alt="Procan" />
+          <p class="site-author-name" itemprop="name">Procan</p>
+           
+              <p class="site-description motion-element" itemprop="description">a blog for procan</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/procanzzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-check"><span class="nav-number">1.</span> <span class="nav-text">PHP check</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器与客户端"><span class="nav-number">1.1.</span> <span class="nav-text">服务器与客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络基础"><span class="nav-number">1.2.</span> <span class="nav-text">网络基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-S-B-S"><span class="nav-number">1.3.</span> <span class="nav-text">C/S B/S</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP基础"><span class="nav-number">1.4.</span> <span class="nav-text">PHP基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP数组"><span class="nav-number">1.5.</span> <span class="nav-text">PHP数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#索引数组与关联数组"><span class="nav-number">1.5.1.</span> <span class="nav-text">索引数组与关联数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP中的几种输出方式"><span class="nav-number">1.5.2.</span> <span class="nav-text">PHP中的几种输出方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP的函数"><span class="nav-number">1.5.3.</span> <span class="nav-text">PHP的函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单处理"><span class="nav-number">1.6.</span> <span class="nav-text">表单处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件导入"><span class="nav-number">1.7.</span> <span class="nav-text">文件导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP页面的动态渲染"><span class="nav-number">1.8.</span> <span class="nav-text">PHP页面的动态渲染</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Procan</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

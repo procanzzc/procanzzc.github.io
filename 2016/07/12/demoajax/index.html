@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ajax," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="插件复习">
+<meta name="keywords" content="ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn ajax">
+<meta property="og:url" content="http://yoursite.com/2016/07/12/demoajax/index.html">
+<meta property="og:site_name" content="Procan&#39;s Blog">
+<meta property="og:description" content="插件复习">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-19T07:45:38.840Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learn ajax">
+<meta name="twitter:description" content="插件复习">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/12/demoajax/"/>
+
+
+
+
+
+  <title>Learn ajax | Procan's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Procan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/12/demoajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Procan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Procan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learn ajax</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-12T00:00:00+08:00">
+                2016-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ajax/" itemprop="url" rel="index">
+                    <span itemprop="name">ajax</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  插件复习
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="require的使用"><a href="#require的使用" class="headerlink" title="require的使用"></a>require的使用</h3><ul>
+<li>先使用define定义需要模块化的函数</li>
+<li>可以在main.js函数中引入该模块,设置好路径以及需要的依赖</li>
+<li>设置依赖shim.如果是非define定义的函数想要进行模块化.则使用exports</li>
+<li>设置完毕之后在对应的页面引入该模块require();</li>
+</ul>
+<h3 id="jquery-form-js"><a href="#jquery-form-js" class="headerlink" title="jquery.form.js"></a>jquery.form.js</h3><ul>
+<li>发送请求的方法为ajaxSubmit()</li>
+<li>在需要发送的form表单元素中添加接口需要的参数名称</li>
+<li>不需要接收的表单元素则不添加</li>
+</ul>
+<h3 id="arttemplate"><a href="#arttemplate" class="headerlink" title="arttemplate"></a>arttemplate</h3><ul>
+<li>支持模块化.绑定的模版为id名称</li>
+<li>在模版中可以书写逻辑代码,注意逻辑代码要书写正确,(符号)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;<span class="keyword">if</span> ...&#125;&#125;</div><div class="line"></div><div class="line">&#123;&#123;/<span class="keyword">if</span>&#125;&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#123;&#123;each 数组名称或者对象名称 <span class="keyword">as</span> value index&#125;&#125;</div><div class="line">    &#123;&#123;value.键名&#125;&#125;</div><div class="line">&#123;&#123;/each&#125;&#125;</div><div class="line"></div><div class="line">&#123;&#123;三元表达式&#125;&#125;</div></pre></td></tr></table></figure>
+<h3 id="ckeditor"><a href="#ckeditor" class="headerlink" title="ckeditor"></a>ckeditor</h3><ul>
+<li>富文本插件,返回值是CKEDITOR</li>
+<li>不支持模块化所以使用的时候需要设置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    shim:&#123;</div><div class="line">        ckeditor:&#123;</div><div class="line">            exports:<span class="string">'CKEDITOR'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//调用</span></div><div class="line"><span class="comment">//CKEDITOR.replace('类名',&#123;'配置参数'&#125;);</span></div><div class="line"></div><div class="line"></div><div class="line">CKEDITOR.replace(<span class="string">'introduce'</span>,&#123;</div><div class="line">      toolbarGroups:[</div><div class="line">          &#123; <span class="attr">name</span>: <span class="string">'clipboard'</span>,   <span class="attr">groups</span>: [ <span class="string">'clipboard'</span>, <span class="string">'undo'</span> ] &#125;,</div><div class="line">          &#123; <span class="attr">name</span>: <span class="string">'links'</span> &#125;,</div><div class="line">          &#123; <span class="attr">name</span>: <span class="string">'document'</span>,    <span class="attr">groups</span>: [ <span class="string">'mode'</span>, <span class="string">'document'</span>, <span class="string">'doctools'</span> ] &#125;,</div><div class="line">          &#123; <span class="attr">name</span>: <span class="string">'basicstyles'</span>, <span class="attr">groups</span>: [ <span class="string">'basicstyles'</span>, <span class="string">'cleanup'</span> ] &#125;,</div><div class="line">          &#123; <span class="attr">name</span>: <span class="string">'paragraph'</span>,   <span class="attr">groups</span>: [ <span class="string">'list'</span>, <span class="string">'indent'</span>, <span class="string">'blocks'</span>, <span class="string">'align'</span>, <span class="string">'bidi'</span> ] &#125;</div><div class="line">        ]</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<h3 id="bootstrap-datepicker"><a href="#bootstrap-datepicker" class="headerlink" title="bootstrap-datepicker"></a>bootstrap-datepicker</h3><ul>
+<li>日期插件,依赖于bootstarp,而bootstarp依赖于jquery</li>
+<li>其中的中文翻译包依赖于jquery</li>
+<li>format修改日期显示的格式,</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input[name=yourname],input[name=myname]'</span>).datepicker(&#123;</div><div class="line">     format:<span class="string">'yyyy-mm-dd'</span>,</div><div class="line">     language:<span class="string">'zh-CN'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="jquery-uploadify"><a href="#jquery-uploadify" class="headerlink" title="jquery.uploadify"></a>jquery.uploadify</h3><ul>
+<li>上传插件,使用的浏览器要打开flash插件,依赖于jquery</li>
+<li>需要设置默认的swf文件</li>
+<li>onUploadSuccess 上传成功之后执行的函数</li>
+<li>fileObjName 上传到服务器的文件名,也就是当前的input标签的name属性值</li>
+<li>成功之后返回的是字符串,所以需要手动将字符串变换为对象 JSON.parse();<br>###</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#upfile'</span>).uploadify(&#123;</div><div class="line">   <span class="string">'swf'</span>:<span class="string">'/views/public/assets/uploadify/uploadify.swf'</span>,</div><div class="line">   <span class="string">'uploader'</span>:<span class="string">'/api/uploader/avatar'</span>, <span class="comment">//提交的接口</span></div><div class="line">   <span class="string">'width'</span>:<span class="number">120</span>,</div><div class="line">   <span class="string">'height'</span>:<span class="number">120</span>,</div><div class="line">   <span class="string">'buttonText'</span>:<span class="string">''</span>,</div><div class="line">   <span class="string">'fileObjName'</span>:<span class="string">'tc_avatar'</span>,<span class="comment">//上传到服务器的文件名，也就是当前的input标签的name属性值</span></div><div class="line">   onUploadSuccess:<span class="function"><span class="keyword">function</span> (<span class="params">file,data,response</span>)</span>&#123;</div><div class="line">       <span class="comment">// var obj = JSON.parse(data);</span></div><div class="line">       <span class="comment">// // obj.result.path</span></div><div class="line">       <span class="comment">//  // 图片上传成功之后，服务器会返回一个图片在服务器的地址,再给当前的img的src属性设置一下，即可立即显示上传的头像信息</span></div><div class="line">       <span class="comment">// $('.preview img').attr('src',obj.result.path);</span></div><div class="line">       $(<span class="string">'.preview img'</span>).attr(<span class="string">'src'</span>,<span class="built_in">JSON</span>.parse(data).result.path);</div><div class="line">   &#125;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
+<h3 id="jquery-region"><a href="#jquery-region" class="headerlink" title="jquery.region"></a>jquery.region</h3><ul>
+<li>三级联动插件支持模块化</li>
+<li>在三级联动的select标签中设置data-id<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#region'</span>).region(&#123;</div><div class="line">    url:<span class="string">'jquery-region/region.json'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="工具模块"><a href="#工具模块" class="headerlink" title="工具模块"></a>工具模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//现在是进行了模块化的开发，因此现在的这个与业务不相关的功能，也要封闭成一个模块，这就是一个工具模块</span></div><div class="line"><span class="comment">//专门用来获取?后面的id</span></div><div class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> o = &#123;</div><div class="line">    queryString:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="comment">// 获取当前url中的tc_id</span></div><div class="line">      <span class="keyword">var</span> search = location.search;<span class="comment">//  ?tc_id=14&amp;name=zhangsan&amp;age=20</span></div><div class="line">      search = search.slice(<span class="number">1</span>); <span class="comment">//第一个参数是从哪里开始截取，第二个参数是截取到哪里，如果不写默认是截取到最后</span></div><div class="line">      <span class="comment">// console.log(search);</span></div><div class="line">      <span class="keyword">var</span> searchArr = search.split(<span class="string">'&amp;'</span>);  <span class="comment">//searchArr是一个数组</span></div><div class="line">      <span class="comment">// console.log(searchArr);</span></div><div class="line">      <span class="keyword">var</span> obj = &#123;&#125;;  <span class="comment">//定义一个空对象 ，用来存储数据</span></div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;searchArr.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> temp =  searchArr[i].split(<span class="string">'='</span>); <span class="comment">//temp也是一个数组</span></div><div class="line">        <span class="comment">// console.log(temp);</span></div><div class="line">        obj[temp[<span class="number">0</span>]] = temp[<span class="number">1</span>];</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> obj; <span class="comment">//要把对象返回值</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">    <span class="keyword">return</span> o;<span class="comment">//最后返回对象</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ajax/" rel="tag"># ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/01/h5c3check/" rel="prev" title="Learn html5">
+                Learn html5 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg"
+               alt="Procan" />
+          <p class="site-author-name" itemprop="name">Procan</p>
+           
+              <p class="site-description motion-element" itemprop="description">a blog for procan</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/procanzzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#require的使用"><span class="nav-number">1.</span> <span class="nav-text">require的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery-form-js"><span class="nav-number">2.</span> <span class="nav-text">jquery.form.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arttemplate"><span class="nav-number">3.</span> <span class="nav-text">arttemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ckeditor"><span class="nav-number">4.</span> <span class="nav-text">ckeditor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap-datepicker"><span class="nav-number">5.</span> <span class="nav-text">bootstrap-datepicker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery-uploadify"><span class="nav-number">6.</span> <span class="nav-text">jquery.uploadify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery-region"><span class="nav-number">7.</span> <span class="nav-text">jquery.region</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具模块"><span class="nav-number">8.</span> <span class="nav-text">工具模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Procan</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

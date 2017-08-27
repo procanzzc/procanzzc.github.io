@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mobile web," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="web复习">
+<meta name="keywords" content="mobile web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn mobile web">
+<meta property="og:url" content="http://yoursite.com/2017/01/02/web/index.html">
+<meta property="og:site_name" content="Procan&#39;s Blog">
+<meta property="og:description" content="web复习">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-12T00:34:38.943Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learn mobile web">
+<meta name="twitter:description" content="web复习">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/02/web/"/>
+
+
+
+
+
+  <title>Learn mobile web | Procan's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Procan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/02/web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Procan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Procan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learn mobile web</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-02T00:00:00+08:00">
+                2017-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  web复习
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="WEB页面check"><a href="#WEB页面check" class="headerlink" title="WEB页面check"></a>WEB页面check</h2><h3 id="轮播图注意事项"><a href="#轮播图注意事项" class="headerlink" title="轮播图注意事项"></a>轮播图注意事项</h3><ul>
+<li>1.PC端与移动端分离。PC端使用背景图片，移动端使用img标签。</li>
+<li>2.需要一大一小2张图片。PC端a标签固定高度,PC端使用背景图片,移动端使用img标签。</li>
+<li>3.移动端img标签需要宽度100%；</li>
+<li>4.使用媒体查询控制a标签的显示隐藏，bootstrap就使用响应式工具操作。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--PC--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"bg_a"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--移动端--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="二倍图"><a href="#二倍图" class="headerlink" title="二倍图"></a>二倍图</h3><ul>
+<li>1.WEB二倍图一般使用大一倍的图片作为div的背景，然后使用background-size,缩小背景图片的尺寸显示。</li>
+<li>2.html5属性有srcset可以设置两张图片清晰显示,兼容性不好。</li>
+<li>3.注意background-position也需要缩小一倍。</li>
+</ul>
+<h3 id="zepto-js"><a href="#zepto-js" class="headerlink" title="zepto.js"></a>zepto.js</h3><ul>
+<li>1.可以缩小jquery的大小，语法与jquery类似，但是需要引入需要的部分。</li>
+<li>2.比jquery多touch事件，可以使用touch事件中的swipeLeft，swipeRight事件。</li>
+</ul>
+<h3 id="swiper-js"><a href="#swiper-js" class="headerlink" title="swiper.js"></a>swiper.js</h3><ul>
+<li>1.使用swiper.js制作list列表弹性拉伸，比样式更加优化。</li>
+<li>2.swiper提供setWrapperTranslate方法。</li>
+<li>3.需要注意限制拉伸到一定的长度，left的总长度减去显示盒子的长度，为滚动的最大max长度。</li>
+<li>4.向上滚动的长度为负数。</li>
+<li>5.注意slide的height样式的修改.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//左侧按钮点击事件</span></div><div class="line">$(<span class="string">'.left a'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> index = $(<span class="keyword">this</span>).parent().index();</div><div class="line">    <span class="keyword">var</span> maxmove = $(div).height()-$(<span class="string">'.left'</span>).height();</div><div class="line">    <span class="keyword">var</span> height = $(<span class="keyword">this</span>).height();<span class="comment">//每个按钮的高度</span></div><div class="line">    <span class="keyword">var</span> currentmove = index*height*<span class="number">-1</span>;</div><div class="line">    <span class="keyword">if</span>(currentmove&lt;maxmove)&#123;</div><div class="line">        currentmove = maxmove;</div><div class="line">    &#125;</div><div class="line">    swiper.setWrapperTransition(<span class="number">1000</span>);</div><div class="line">    swiper.setWrapperTranslate(currentmove);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="fullpage-js"><a href="#fullpage-js" class="headerlink" title="fullpage.js"></a>fullpage.js</h3><ul>
+<li>1.运用插件实现滚屏动画，使用fullpage函数事件afterLoad,滚动加载完成后执行。</li>
+<li>2.滚动之后添加currrent样式,双样式名无空格连接表示两个样式名同时成立.在样式中添加过度函数.</li>
+<li>3.afterLoad函数的索引从1开始,所以应用到对应的屏数需要减1;</li>
+</ul>
+<h3 id="drag拖拽元素以及拖拽事件"><a href="#drag拖拽元素以及拖拽事件" class="headerlink" title="drag拖拽元素以及拖拽事件"></a>drag拖拽元素以及拖拽事件</h3><ul>
+<li>1.在元素上添加draggable = “true”;</li>
+<li>2.drag拖拽事件<br>  应用于拖拽元素:<br>  ondrag 在整个拖拽过程中都会触发;<br>  ondragstart 在拖拽开始的时候会触发;<br>  ondragend 在拖拽结束的时候会触发;<br>  应用于目标元素:<br>  ondragover 当停留在目标元素上使用;<br>  ondrop 在目标元素上松开鼠标的时候使用;需要阻止浏览器的默认事件,preventDefault();</li>
+<li>3.在调用的时候最好使用addEventListener使用,绑定新的事件;</li>
+</ul>
+<h3 id="FileReader事件"><a href="#FileReader事件" class="headerlink" title="FileReader事件"></a>FileReader事件</h3><ul>
+<li>1.readAsDataURL 以dataurl的形式读取  readAsText() 以文本的形式读取</li>
+<li>2.以result属性获取结果</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySeletor(<span class="string">'.box'</span>);</div><div class="line"><span class="comment">//鼠标拖拽到目标元素上面的时候阻止浏览器的默认事件</span></div><div class="line">box.addEventListener(<span class="string">'dragover'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    e.preventDefault();</div><div class="line">&#125;,<span class="literal">false</span>);</div><div class="line"><span class="comment">//</span></div><div class="line">box.addEventListener(<span class="string">'drop'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    e.preventDefault();</div><div class="line">    <span class="comment">//e.dataTransfer 返回拖动数据的对象。</span></div><div class="line">    <span class="keyword">var</span> file = e.dataTransfer.files[<span class="number">0</span>];</div><div class="line">    <span class="comment">//files 伪数组，第一个索引返回数据</span></div><div class="line">    <span class="keyword">var</span> fr = <span class="keyword">new</span> FileReader();</div><div class="line">    <span class="comment">//以dataURL形式去读取数据</span></div><div class="line">    fr.readAsDataURL(file);</div><div class="line">    fr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//添加图片</span></div><div class="line">        <span class="comment">//FileReader 返回的数据读取 .result</span></div><div class="line">        box.innerHTML = <span class="string">'&lt;img src="'</span>+fr.result+<span class="string">'" alt="" /&gt;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<h3 id="3D立方体"><a href="#3D立方体" class="headerlink" title="3D立方体"></a>3D立方体</h3><ul>
+<li>正面向屏幕前移动高度的一半，后面的面才可以旋转</li>
+<li>顶部 rotateX(90deg) translateZ(高度的一半)</li>
+<li>底部 rotateX(270deg) translateZ(高度的一半)</li>
+<li>左侧 rotateY(-90deg) translateZ(高度的一半)</li>
+<li>右侧 rotateY(90deg) translateZ(高度的一半)</li>
+<li>背部 rotate(180deg) translateZ(高度的一半)</li>
+</ul>
+<h3 id="video自定义播放器"><a href="#video自定义播放器" class="headerlink" title="video自定义播放器"></a>video自定义播放器</h3><blockquote>
+<p>video oncanplay ontimeupdate 等事件<br>video pause() play()<br>video volume音量 currenttime已经播放的时间 duration总时长<br>range oninput 事件</p>
+<ul>
+<li>获取data自定义属性 dataset</li>
+<li>点击播放的原理:与轮播图一样 设置index索引</li>
+<li>通过Date()对象的方法，返回对应的时分秒，传入的参数单位为毫秒。</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-target</span>=<span class="string">"video/1.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--获取自定义属性--&gt;</span></div><div class="line"><span class="comment">&lt;!--dataset.target--&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//点击全屏播放</span></div><div class="line">all.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    video.webkitRequestFullScreen();</div><div class="line">&#125;</div><div class="line"><span class="comment">//播放时间的设置与显示</span></div><div class="line">video.ontimeupdate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//滚动条设置</span></div><div class="line">    range.value = video.currentTime;</div><div class="line">    <span class="keyword">var</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(video.currentTime *<span class="number">1000</span>);</div><div class="line">    <span class="keyword">var</span> minutes = newDate.getMinutes();</div><div class="line">    <span class="keyword">var</span> seconds = newDate.getSeconds();</div><div class="line">    <span class="comment">//如果分秒小于10的话，在前面加个0</span></div><div class="line">    <span class="keyword">if</span>(minutes&lt;<span class="number">10</span>)&#123;</div><div class="line">        minutes = <span class="string">"0"</span> + minutes;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(seconds&lt;<span class="number">10</span>)&#123;</div><div class="line">        seconds = <span class="string">"0"</span> + seconds;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//给对应的标签添加生成的时间</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//video在加载完成之后显示总时长</span></div><div class="line">video.oncanplay = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//设置range的最大值与最小值</span></div><div class="line">    range.max = video.duration;</div><div class="line">    range.min = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> newDate = <span class="keyword">new</span> <span class="built_in">Date</span>(video.duration*<span class="number">1000</span>);</div><div class="line">    <span class="keyword">var</span> minutes = newDate.getMinutes();</div><div class="line">    <span class="keyword">var</span> seconds = newDate.getSeconds();</div><div class="line">     <span class="comment">//如果分秒小于10的话，在前面加个0</span></div><div class="line">    <span class="keyword">if</span>(minutes&lt;<span class="number">10</span>)&#123;</div><div class="line">        minutes = <span class="string">"0"</span> + minutes;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(seconds&lt;<span class="number">10</span>)&#123;</div><div class="line">        seconds = <span class="string">"0"</span> + seconds;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//给对应的标签添加生成的时间</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//range进度条事件</span></div><div class="line">range.oninput = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    video.currentTime = range.value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//获取时分秒的另一种方式</span></div><div class="line">video.ontimeupdate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> curtime = video.currentTime;</div><div class="line">    <span class="keyword">var</span> hour = <span class="built_in">parseInt</span>(curtime/<span class="number">3600</span>);</div><div class="line">    <span class="keyword">var</span> minutes = <span class="built_in">parseInt</span>(curtime%<span class="number">3600</span>/<span class="number">60</span>);</div><div class="line">    <span class="keyword">var</span> seconds = curtime%<span class="number">60</span>;</div><div class="line">      <span class="comment">//如果分秒小于10的话，在前面加个0</span></div><div class="line">    <span class="keyword">if</span>(minutes&lt;<span class="number">10</span>)&#123;</div><div class="line">        minutes = <span class="string">"0"</span> + minutes;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(seconds&lt;<span class="number">10</span>)&#123;</div><div class="line">        seconds = <span class="string">"0"</span> + seconds;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//将获取到的时间设置到对应的标签上</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">video.oncanplay = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> totaltime = video.duration;</div><div class="line">    <span class="keyword">var</span> hour = <span class="built_in">parseInt</span>(totaltime/<span class="number">3600</span>);</div><div class="line">    <span class="keyword">var</span> minutes = <span class="built_in">parseInt</span>(totaltime%<span class="number">3600</span>/<span class="number">60</span>);</div><div class="line">    <span class="keyword">var</span> seconds = totaltime%<span class="number">60</span>;</div><div class="line">      <span class="comment">//如果分秒小于10的话，在前面加个0</span></div><div class="line">    <span class="keyword">if</span>(minutes&lt;<span class="number">10</span>)&#123;</div><div class="line">        minutes = <span class="string">"0"</span> + minutes;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(seconds&lt;<span class="number">10</span>)&#123;</div><div class="line">        seconds = <span class="string">"0"</span> + seconds;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//将获取到的时间设置到对应的标签上</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mobile-web/" rel="tag"># mobile web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/22/ajaxcheck/" rel="next" title="Learn AJAX">
+                <i class="fa fa-chevron-left"></i> Learn AJAX
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/06/闭包/" rel="prev" title="Learn 闭包">
+                Learn 闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg"
+               alt="Procan" />
+          <p class="site-author-name" itemprop="name">Procan</p>
+           
+              <p class="site-description motion-element" itemprop="description">a blog for procan</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/procanzzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB页面check"><span class="nav-number">1.</span> <span class="nav-text">WEB页面check</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#轮播图注意事项"><span class="nav-number">1.1.</span> <span class="nav-text">轮播图注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二倍图"><span class="nav-number">1.2.</span> <span class="nav-text">二倍图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zepto-js"><span class="nav-number">1.3.</span> <span class="nav-text">zepto.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#swiper-js"><span class="nav-number">1.4.</span> <span class="nav-text">swiper.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fullpage-js"><span class="nav-number">1.5.</span> <span class="nav-text">fullpage.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#drag拖拽元素以及拖拽事件"><span class="nav-number">1.6.</span> <span class="nav-text">drag拖拽元素以及拖拽事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileReader事件"><span class="nav-number">1.7.</span> <span class="nav-text">FileReader事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D立方体"><span class="nav-number">1.8.</span> <span class="nav-text">3D立方体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video自定义播放器"><span class="nav-number">1.9.</span> <span class="nav-text">video自定义播放器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Procan</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
