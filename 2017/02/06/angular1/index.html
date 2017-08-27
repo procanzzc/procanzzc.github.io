@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angular," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="angular初步认知">
+<meta name="keywords" content="angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn angular">
+<meta property="og:url" content="http://yoursite.com/2017/02/06/angular1/index.html">
+<meta property="og:site_name" content="Procan&#39;s Blog">
+<meta property="og:description" content="angular初步认知">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-27T07:06:26.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learn angular">
+<meta name="twitter:description" content="angular初步认知">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/06/angular1/"/>
+
+
+
+
+
+  <title>Learn angular | Procan's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Procan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/06/angular1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Procan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Procan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learn angular</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-06T00:00:00+08:00">
+                2017-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  angular初步认知
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="angular-初步"><a href="#angular-初步" class="headerlink" title="angular 初步"></a>angular 初步</h2><ul>
+<li>每个指令属性都有优先级</li>
+</ul>
+<ul>
+<li><strong>内置模块系统</strong><ul>
+<li>这里的模块系统与<strong>requireJS</strong>模块类库有<strong>很大差别</strong>，它不是模块加载器</li>
+<li>而是帮我们<strong>组织代码结构</strong>的一套规范，严格限制了我们的编码方式</li>
+<li>同时多个模块可以通过依赖配置实现功能合并与共享</li>
+</ul>
+</li>
+<li><strong>内置模版引擎</strong><ul>
+<li>这里的模版有我们熟悉的<strong>表达式</strong>和<strong>过滤器</strong>系统，写法基本类似</li>
+<li>不同的是模版与数据的<strong>绑定方式</strong>不一样</li>
+</ul>
+</li>
+<li><strong>扩展原生HTML功能</strong><ul>
+<li>通过自定义<strong>属性</strong>与<strong>标签</strong>扩展了HTML功能，这些属性标签称为<strong>指令</strong></li>
+<li>有了自定义指令基本上我们不再需要<strong>手动</strong>操作DOM，因为封装好了</li>
+</ul>
+</li>
+<li><strong>数据绑定</strong><ul>
+<li>一般的模版引擎，数据与视图的联系是<strong>一次性</strong>的，模版渲染到页面中俩者再无瓜葛</li>
+<li>Angualr中数据与视图的联系是<strong>永久性</strong>的，一旦有了关联，任何时间任意一方改变都会引起另一方的变化<h3 id="angular模块"><a href="#angular模块" class="headerlink" title="angular模块"></a>angular模块</h3></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>主要是为了划分大型项目中不同的程序功能</li>
+<li>主模块的另一个作用:关联视图</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//模块的创建与关联</span></div><div class="line"></div><div class="line"></div><div class="line">angular.module(<span class="string">'name'</span>,[<span class="string">'依赖'</span>]);</div><div class="line"><span class="comment">//使用ng-app在html中进行关联</span></div><div class="line"></div><div class="line">angular.bootstrap(<span class="built_in">document</span>.body,[<span class="string">'app'</span>]);</div><div class="line"><span class="comment">//使用bootstarp在js中进行关联</span></div></pre></td></tr></table></figure>
+<h3 id="angular控制器"><a href="#angular控制器" class="headerlink" title="angular控制器"></a>angular控制器</h3><ul>
+<li>主要是实现页面数据动态化</li>
+<li>使用控制器需要配合使用$scope服务,这是视图与控制器的一个桥梁,给这个对象添加的属性都可以在视图中访问</li>
+<li>一个主模块可以创建任意多的控制器,每个控制器可以关联视图中的一个部分</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">模块.controller(<span class="string">'name'</span>,[<span class="string">'依赖服务'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//书写代码</span></div><div class="line"></div><div class="line">&#125;]);</div><div class="line"><span class="comment">//在html中使用ng-controller进行关联</span></div></pre></td></tr></table></figure>
+<h3 id="angular服务"><a href="#angular服务" class="headerlink" title="angular服务"></a>angular服务</h3><ul>
+<li>主要是抽取公共逻辑或者分担控制器的压力</li>
+<li>服务创建的方式比较多,但是大同小异</li>
+<li>服务里面需要返回一个暴漏给外部的对象,方便外部调用</li>
+<li>在控制器调用的时候要引入服务依赖,并在回调函数中引入该服务的对应参数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//在使用时return什么就会得到什么</span></div><div class="line">App.factory(<span class="string">'name'</span>,[<span class="string">'依赖名称'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;]);</div><div class="line"></div><div class="line"></div><div class="line">App.factory(<span class="string">'userService'</span>,[<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        getuserList:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(localStorage.setItem(<span class="string">'list'</span>))||[];</div><div class="line">        &#125;,</div><div class="line">        isUser:<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> list = <span class="keyword">this</span>.getuserList();</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;list.length;i++)&#123;</div><div class="line">                <span class="keyword">if</span>(list[i].username == name)&#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        setuserList:<span class="function"><span class="keyword">function</span>(<span class="params">usermsg</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> list = <span class="keyword">this</span>.getuserList();</div><div class="line">            list.push(usermsg);</div><div class="line">            localStorage.setItem(<span class="string">'list'</span>,<span class="built_in">JSON</span>.stringify(list));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;]);</div><div class="line"><span class="comment">// this添加了什么就有什么</span></div><div class="line">App.service(<span class="string">'name'</span>,[<span class="string">'依赖名称'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.<span class="string">'名称'</span> = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.a = <span class="string">''</span>;</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//调用</span></div><div class="line"><span class="comment">//'依赖名称'.函数名或者属性</span></div></pre></td></tr></table></figure>
+<h3 id="内置服务"><a href="#内置服务" class="headerlink" title="内置服务"></a>内置服务</h3><h4 id="http"><a href="#http" class="headerlink" title="$http"></a>$http</h4><ul>
+<li>$http提供了get/post方法,通过then方法来添加成功与失败的回调</li>
+<li>post方法需要手动将参数修改为str字符串,将headers改为formdata的请求头</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$http(&#123;</div><div class="line">    url: <span class="string">'/xx/xxx'</span>,</div><div class="line">    method: <span class="string">'post'</span>,</div><div class="line">    data:<span class="string">'name=zzc'</span>,</div><div class="line">    headers: &#123;</div><div class="line">      <span class="string">'Content-Type'</span>:  <span class="string">'application/x-www-form-urlencoded'</span></div><div class="line">    &#125;</div><div class="line">  &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">resp</span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(resp);</div><div class="line">  &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">resp</span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(resp);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<h4 id="location"><a href="#location" class="headerlink" title="$location"></a>$location</h4><ul>
+<li>对浏览器location对象的封装</li>
+<li>这里$location参照的是前端路由来获取的path等值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$interval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    </div><div class="line">&#125;, <span class="number">500</span>);</div></pre></td></tr></table></figure>
+<h4 id="timeout与-interval"><a href="#timeout与-interval" class="headerlink" title="$timeout与$interval"></a>$timeout与$interval</h4><ul>
+<li>原生的定时器改变数据后，angular是无法检测到的，造成视图不刷新</li>
+<li>这两方法是对原生方法的封装，使用方式一样，就是为了解决上诉问题的</li>
+</ul>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ul>
+<li>主要是抽取模版中的公共数据处理逻辑</li>
+<li>相比服务更加的直观简洁</li>
+<li>过滤器要求callback再返回一个callback,外层callback接收依赖服务,内层callback是接收来自模版的值,做好加工处理返回</li>
+<li>封装视图中重复的数据操作,最常见的场景是数据格式的转换</li>
+<li>在js中可以使用$filter服务获取到指定的过滤器关键函数.然后在js中调用</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    &#123;&#123;name | namefilter : 'YYYY'&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在视图中，同一个数据可能在不同地方，需要以不同的格式或方式进行显示,这种情况，我们需要在不同的地方对数据进行临时的格式转换并且你要确保这些临时性的数据转换不会伤及到原数据</span></div><div class="line"></div><div class="line">App.filter(<span class="string">'namefilter'</span>,[<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">        <span class="comment">// a为模版中的数据</span></div><div class="line">        <span class="comment">// b为用户指定的参数</span></div><div class="line">    &#125;;</div><div class="line">&#125;]);</div><div class="line"></div><div class="line"><span class="comment">//大部分过滤器在视图中使用,但如果需要可以在js中调用</span></div><div class="line">App.controller(<span class="string">'appctrl'</span>,[<span class="string">'$scope'</span>,<span class="string">'$filter'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope,$filter</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> filterfun = $filter(<span class="string">'namefilter'</span>);</div><div class="line">    $scope.name = filterfun(.....);</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<h3 id="ng-指令"><a href="#ng-指令" class="headerlink" title="ng-指令"></a>ng-指令</h3><ul>
+<li>ng-repeat </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-repeat=<span class="string">"(i,v) in obj "</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&lt;div ng-repeat=<span class="string">"(i,v) in list "</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<ul>
+<li>ng-model</li>
+<li><p>与表单实现双向数据绑定</p>
+</li>
+<li><p>ng-cloak </p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">//可以配合css解决闪烁问题,使用之后可以继续使用&#123;&#123;&#125;&#125;这种简洁语法</span></div><div class="line"><span class="undefined">//也可以设置ng-bind,ng指令有优先级,当你设置了ng-bind,在&#123;&#123;&#125;&#125;中设置的属性会被忽略,包括过滤器</span></div><div class="line"><span class="undefined">    [ng-cloak]&#123;</span></div><div class="line"><span class="undefined">        display:none;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"app"</span> <span class="attr">ng-cloak</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>ng-if</li>
+<li>控制元素的插入与移除</li>
+<li>ng-show/ng-hide</li>
+<li>控制元素的显示与隐藏</li>
+<li>ng-repeat</li>
+<li>可以遍历数组或者对象,可以指定遍历次数 limitTo : num</li>
+</ul>
+<h3 id="内置过滤器"><a href="#内置过滤器" class="headerlink" title="内置过滤器"></a>内置过滤器</h3><h4 id="常用内置过滤器"><a href="#常用内置过滤器" class="headerlink" title="常用内置过滤器"></a>常用内置过滤器</h4><ul>
+<li>currency可以将数值格式化为货币,可以指定货币符号与保留的小数点位数,默认保留2位</li>
+<li>date 日期格式化</li>
+<li>orderBy 对数组进行排序,一般与ng-repeat配合使用,第一个参数可以指定排序规则，值可以是字符串、数组,第二个参数可以指定顺序，默认false从小到大，true从大到小,了解：第一个参数还可以是数组,按优先级指定多个关键字或函数动态设置关键字</li>
+<li>fliter 搜索过滤器,设置一个参数指定要查找的关键字,可以是字符串.对象</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"app"</span> <span class="attr">ng-controller</span>=<span class="string">"appCtrl"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; val | currency:'￥':'2' &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; val | date:'yyyy-MM-dd hh:mm:ss:.sss' &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 从小到大 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"v in list | orderBy "</span>&gt;</span>&#123;&#123; v &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 从大到小 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"v in list | orderBy:null:true "</span>&gt;</span>&#123;&#123; v &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 按年龄排序 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"v in list | orderBy:'age' "</span>&gt;</span>&#123;&#123; v &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 先按年龄排序，如果相等再按身高排序 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"v in list | orderBy:['age', 'height'] "</span>&gt;</span>&#123;&#123; v &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 搜索含有字符a的数据 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"v in list | filter:'a' "</span>&gt;</span>&#123;&#123; v &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 搜索对象age属性值为16的数据 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"v in list | filter:&#123;age: 16&#125; "</span>&gt;</span>&#123;&#123; v &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular/" rel="tag"># angular</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/02/web/" rel="next" title="Learn mobile web">
+                <i class="fa fa-chevron-left"></i> Learn mobile web
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/06/闭包/" rel="prev" title="Learn 闭包">
+                Learn 闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502424193227&di=f981258016a0e3a4aa85d70bcf4f905b&imgtype=0&src=http%3A%2F%2Fimg.name2012.com%2Fuploads%2Fallimg%2F2015-04%2F18-033949_178.jpg"
+               alt="Procan" />
+          <p class="site-author-name" itemprop="name">Procan</p>
+           
+              <p class="site-description motion-element" itemprop="description">a blog for procan</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/procanzzc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-初步"><span class="nav-number">1.</span> <span class="nav-text">angular 初步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#angular模块"><span class="nav-number">1.1.</span> <span class="nav-text">angular模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#angular控制器"><span class="nav-number">1.2.</span> <span class="nav-text">angular控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#angular服务"><span class="nav-number">1.3.</span> <span class="nav-text">angular服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置服务"><span class="nav-number">1.4.</span> <span class="nav-text">内置服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#http"><span class="nav-number">1.4.1.</span> <span class="nav-text">$http</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">1.4.2.</span> <span class="nav-text">$location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#timeout与-interval"><span class="nav-number">1.4.3.</span> <span class="nav-text">$timeout与$interval</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器"><span class="nav-number">1.5.</span> <span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ng-指令"><span class="nav-number">1.6.</span> <span class="nav-text">ng-指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置过滤器"><span class="nav-number">1.7.</span> <span class="nav-text">内置过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用内置过滤器"><span class="nav-number">1.7.1.</span> <span class="nav-text">常用内置过滤器</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Procan</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
